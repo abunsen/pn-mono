@@ -17,6 +17,7 @@ module.exports = {
       colors: {
         "off-black": "#222629",
         "ninja-red": "#c75240",
+        "code-gray": "#2e3440ff",
       },
     },
   },

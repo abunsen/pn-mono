@@ -43,48 +43,14 @@
         <div class="w-96 mx-auto rounded-lg" data-website-target="revealContainer">
           <!-- component -->
           <div class="flex items-center justify-center">
-            <div class="h-[32rem] w-full bg-gray-800 shadow-2xl rounded-lg overflow-hidden">
+            <div class="h-[32rem] w-full bg-code-gray shadow-2xl rounded-lg overflow-hidden">
               <div id="header-buttons" class="py-3 px-4 flex">
                 <div class="rounded-full w-3 h-3 bg-red-500 mr-2"></div>
                 <div class="rounded-full w-3 h-3 bg-yellow-500 mr-2"></div>
                 <div class="rounded-full w-3 h-3 bg-green-500"></div>
               </div>
               <div class="py-4 px-8 mt-1 text-white text-xs font-code">
-                <div class="mb-2">
-                  <span class="text-blue-600">curl</span>
-                  <span class="text-blue-300">https://api.passninja.com/v1/passes/</span>
-                  <span class="text-white"> \</span>
-                  <br/>
-
-                  <span class="text-blue-300">--request POST</span>
-                  <span class="text-white"> \</span>
-                  <br/>
-
-                  <span class="text-blue-300">--header</span>
-                  <span class="text-yellow-300"> 'Content-Type: application/json'</span>
-                  <span class="text-white"> \</span>
-                  <br/>
-
-                  <span class="text-blue-300">--header</span>
-                  <span class="text-yellow-300"> 'x-api-key: YOUR_ACCOUNT_ID'</span>
-                  <span class="text-white"> \</span>
-                  <br/>
-
-                  <span class="text-blue-300">--data</span>
-                  <span class="text-yellow-300"> '{<br/>
-&nbsp;&nbsp;"passType": "com.passNinja.espana.SagradaPass",<br/>
-&nbsp;&nbsp;"pass":{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"venue": "Sagrada Familia Basic Ticket",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"ticketType": "General",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"expiration": "2023-01-26T17:00:00Z",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"memberName": "John Brown",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"amount": "20,00",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"access": null,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"barcode": "loc.85267798"<br/>
-&nbsp;&nbsp;}<br/>
-    }'<br/>
-                  </span>
-                </div>
+                <code data-website-target="revealCodeContainer"></code>
               </div>
             </div>
           </div>
@@ -187,7 +153,7 @@
   </div>
 </section>
 
-<section class="my-32 container mx-auto flex">
+<section class="mt-32 container mx-auto flex">
   <div class="w-1/2 pt-48 pl-36">
     <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Coupons</strong>
     <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Bring coupons to your customer experience that belong in this century. Coupons that are tailored directly to your customer, with notifications that send redemption rates through the roof.</p>
@@ -195,5 +161,147 @@
 
   <div class="w-1/2">
     <%= image_tag "website/Coupons@2x.png", class: "hd-96" %>
+  </div>
+</section>
+
+<section class="mt-8 relative h-[650px]">
+  <div class="h-[650px] w-full md:w-9/12 bg-gray-600 absolute"></div>
+
+  <div class="absolute w-full pt-12">
+    <div class="container mx-auto flex">
+      <div class="w-3/12">
+        <%= image_tag "website/Star.png", class: "ml-8" %>
+      </div>
+
+      <div class="w-9/12">
+        <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight mt-4">
+          <span class="relative custom-underline left-aligned large z-20">Built for developers</span>
+        </h3> 
+
+        <%= link_to "Check out our Tutorials and Docs", "/tutorials", class: "inline-block my-8 mr-12 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black float-right" %>
+      </div>
+    </div> <!-- end of section header -->
+
+    <div class="container mt-16 mx-auto grid grid-cols-1 md:grid-cols-3">
+      <div class="flex-col">
+        <%= image_tag "website/bullhorn.png", class: "" %>
+        <strong class="text-white text-xl inline-block my-6 font-bold">
+          API first
+        </strong>
+        <p class="text-white w-11/12 text-lg">
+          We built the API we wish existed, making it possible to create and issue a pass in just two simple API calls with the client library of your choice; in Swift, React Native, Python, Ruby & PHP.
+        </p>
+      </div>
+
+      <div class="flex-col">
+        <%= inline_svg_tag "website/shield.svg", class: "" %>
+        <strong class="text-white text-xl inline-block my-6 font-bold">
+          Secure
+        </strong>
+        <p class="text-white w-11/12 text-lg">
+          We encrypt all communications and never store personally identifiable information about your customers on our servers.
+        </p>
+      </div>
+
+      <div class="flex-col">
+        <%= inline_svg_tag "website/spanner.svg", class: "" %>
+        <strong class="text-white text-xl inline-block my-6 font-bold">
+          Maintenance free
+        </strong>
+        <p class="text-white w-11/12 text-lg">
+          Never worry about expiring certificates, server uptime, cross-platform compatibility or NFC reader configuration. It’s all baked into the platform.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-32 container mx-auto flex">
+  <div class="w-1/2 pl-12">
+    <p class="mt-6 uppercase text-ninja-red text-5xl leading-snug font-light font-oswald tracking-tight text-right mr-16">
+      Here's what our<br/> 
+      customers think.
+    </p>
+  </div>
+
+  <div class="w-1/2">
+    <div class="w-4/5 flex-col">
+      <%= image_tag "website/avatar2@2x.png", class: "rounded-full h-36 pl-16 my-8" %>
+
+      <div class="relative">
+        <div class="blockquote pl-16">
+          <blockquote class="text-white font-light text-2xl pl-2">
+            This works smooth & amazing, yes this is exactly what we‘re looking for! I‘ll play a bit with this, really like your work.”
+          </blockquote>
+        </div>
+      </div>
+
+      <p class="mt-8 text-white pl-16 ml-2">
+        <strong class="text-ninja-red font-semibold">Sebastian Hirth</strong>
+        <br/>
+        Founder / <%= link_to "Blackmite", "https://blackmite.com/index", target: "_blank" %>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<section class="my-36 container mx-auto text-center">
+  <h3 class="mt-6 mb-12 mx-auto uppercase text-ninja-red text-5xl leading-snug font-light font-oswald tracking-tight">
+    With pre-built libraries in your favorite language
+  </h3>
+
+  <div class="flex text-left" data-controller="website">
+    <div class="w-1/2">
+      <div>
+        <ul class="flex justify-between mx-auto w-3/5" data-website-target="homepageCodeTabs">
+          <li data-action="click->website#toggleCodeSampleTab">
+            <%= link_to "#node", class: "flex-col pb-6 px-2 border-b-4 border-ninja-red text-ninja-red" do %>
+              <%= inline_svg_tag "website/icons/nodejs.svg", class: "inline-block" %>
+            <% end %>
+          </li>
+          <li data-action="click->website#toggleCodeSampleTab">
+            <%= link_to "#python", class: "flex-col pb-6 px-2 text-white" do %>
+              <%= inline_svg_tag "website/icons/python.svg", class: "inline-block" %>
+            <% end %>
+          </li>
+          <li data-action="click->website#toggleCodeSampleTab">
+            <%= link_to "#ruby", class: "flex-col pb-6 px-2 text-white" do %>
+              <%= inline_svg_tag "website/icons/ruby.svg", class: "inline-block" %>
+            <% end %>
+          </li>
+          <li data-action="click->website#toggleCodeSampleTab">
+            <%= link_to "#php", class: "flex-col pb-6 px-2 text-white" do %>
+              <%= inline_svg_tag "website/icons/php.svg", class: "inline-block" %>
+            <% end %>
+          </li>
+        </ul>
+        <div class="mt-3 mx-auto w-4/5 h-96 p-3 rounded-md bg-code-gray text-xs font-code" data-website-target="homepageCodeTabContent">
+          <code data-website-target="nodeSampleCode" class="block overflow-scroll"></code>
+          <code data-website-target="pythonSampleCode" class="block hidden overflow-scroll"></code>
+          <code data-website-target="rubySampleCode" class="block hidden overflow-scroll"></code>
+          <code data-website-target="phpSampleCode" class="block hidden overflow-scroll"></code>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2">
+      <ol class="flex-col mt-8 w-3/5">
+        <li class="mb-8 text-white" data-action="click->website#highlightCode">
+          <strong class="font-semibold text-2xl mb-2 inline-block">1. Activate your account</strong><br/>
+          <p class="text-lg">Simple signup, verify your account via  email and you're ready.</p>
+        </li>
+        <li class="mb-8 text-white">
+          <strong class="font-semibold text-2xl mb-2 inline-block">2. Set up a pass template</strong><br/>
+          <p class="text-lg">Via API or our interface and you're ready to create new passes from there!</p>
+        </li>
+        <li class="mb-8 text-white">
+          <strong class="font-semibold text-2xl mb-2 inline-block">3. Start issuing passes</strong><br/>
+          <p class="text-lg">Use our API to create passes that can be sent to your customers via email or sms.</p>
+        </li>
+        <li>
+          <%= link_to "Read our Documentation", "/docs", class: "inline-block mr-12 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black" %>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
