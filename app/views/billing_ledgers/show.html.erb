@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @billing_ledger %>
+
+<div>
+  <%= link_to "Edit this billing ledger", edit_billing_ledger_path(@billing_ledger) %> |
+  <%= link_to "Back to billing ledgers", billing_ledgers_path %>
+
+  <%= button_to "Destroy this billing ledger", @billing_ledger, method: :delete %>
+</div>

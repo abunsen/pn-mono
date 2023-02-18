@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Issued passes</h1>
+
+<div id="issued_passes">
+  <% @issued_passes.each do |issued_pass| %>
+    <%= render issued_pass %>
+    <p>
+      <%= link_to "Show this issued pass", issued_pass %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New issued pass", new_issued_pass_path %>

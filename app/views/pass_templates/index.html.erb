@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pass templates</h1>
+
+<div id="pass_templates">
+  <% @pass_templates.each do |pass_template| %>
+    <%= render pass_template %>
+    <p>
+      <%= link_to "Show this pass template", pass_template %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pass template", new_pass_template_path %>

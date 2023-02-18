@@ -1,0 +1,2 @@
+module PassTemplatesHelper
+end

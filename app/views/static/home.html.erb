@@ -1,0 +1,103 @@
+<section class="absolute flex w-full top-0 z-0">
+  <div class="w-7/12">&nbsp;</div>
+
+  <div class="w-5/12">
+    <%= inline_svg_tag "website/red-patch.svg", class: 'some-class' %>
+  </div>
+</section>
+
+<section class="absolute w-full top-0 z-0">
+  <div class="container mx-auto flex">
+    <div class="w-7/12 pt-24">
+      <h1 class="text-7xl text-white font-light font-oswald mt-12">
+        <span class="text-ninja-red">PASSNINJA</span>
+        HELPS BUILD <br/> NFC EXPERIENCES <br/> ACROSS MOBILE
+      </h1>
+
+      <p class="text-gray-200 text-2xl mt-8 w-8/12">
+        Use our software and APIs to create, issue, update, and revoke passes for Apple Wallet and Google Pay in minutes instead of months.
+      </p>
+
+      <div>
+        <%= link_to "Get Started for Free", "/", class: "inline-block my-8 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black" %>
+
+        <%= link_to "Learn more", "/", class: "inline-block ml-10 underline font-semibold text-sm text-white" %>        
+      </div>
+
+      <div class="flex text-gray-200">
+        <div class="flex pt-0.5">
+          <%= inline_svg_tag "website/icons/google.svg", class: 'h-6 text-white' %>
+          <%= inline_svg_tag "website/icons/apple.svg", class: 'h-6 text-white' %>
+        </div>
+
+        <span class="text-xs pt-1.5 ml-3">
+          We support Apple iPhone, iWatch and Google Android wallets
+        </span>
+      </div>
+    </div>
+
+    <div class="w-5/12" data-controller="website">
+      <div class="relative mt-24 w-fit mx-auto" data-action="mouseup->website#revealUnclick mousemove->website#revealSlide">
+        <div class="w-96 mx-auto rounded-md" data-website-target="revealContainer">
+          <!-- component -->
+          <div class="flex items-center justify-center">
+            <div class="h-[32rem] w-full bg-gray-800 shadow-2xl rounded-lg overflow-hidden">
+              <div id="header-buttons" class="py-3 px-4 flex">
+                <div class="rounded-full w-3 h-3 bg-red-500 mr-2"></div>
+                <div class="rounded-full w-3 h-3 bg-yellow-500 mr-2"></div>
+                <div class="rounded-full w-3 h-3 bg-green-500"></div>
+              </div>
+              <div class="py-4 px-8 mt-1 text-white text-xs font-code">
+                <div class="mb-2">
+                  <span class="text-blue-600">curl</span>
+                  <span class="text-blue-300">https://api.passninja.com/v1/passes/</span>
+                  <span class="text-white"> \</span>
+                  <br/>
+
+                  <span class="text-blue-300">--request POST</span>
+                  <span class="text-white"> \</span>
+                  <br/>
+
+                  <span class="text-blue-300">--header</span>
+                  <span class="text-yellow-300"> 'Content-Type: application/json'</span>
+                  <span class="text-white"> \</span>
+                  <br/>
+
+                  <span class="text-blue-300">--header</span>
+                  <span class="text-yellow-300"> 'x-api-key: YOUR_ACCOUNT_ID'</span>
+                  <span class="text-white"> \</span>
+                  <br/>
+
+                  <span class="text-blue-300">--data</span>
+                  <span class="text-yellow-300"> '{<br/>
+&nbsp;&nbsp;"passType": "demo.loyaltyCard",<br/>
+&nbsp;&nbsp;"pass":{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"logoText": "Some text",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"organizationName": "My org",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"description": "This is a loyalty card",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"expiration": "2023-12-01T16:59:59Z",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"memberName": "John",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"specialOffer": "Great offer!",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"loyaltyLevel": "level",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"barcode": "www.google.com"<br/>
+&nbsp;&nbsp;}<br/>
+    }'<br/>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of code component -->
+        </div>
+        <%= image_tag "website/Slider-Example@2x.jpg", class: "absolute inset-0 h-[32rem] w-96 mx-auto rounded-md", style: "clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)", data: { "website-target": "revealImage" } %>
+
+        <div class="absolute inset-y-0 rounded-lg" style="left: 50%" data-website-target="revealBorder">
+          <div class="relative h-full">
+            <div class="absolute inset-y-0 bg-gray-800 w-0.5 -ml-px"></div>
+            <button class="h-8 w-8 -ml-4 -mt-8 rounded-full bg-white border border-off-black w-0.5 -ml-px absolute top-1/2 shadow-2xl" data-action="mousedown->website#revealClick"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

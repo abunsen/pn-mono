@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Billing ledgers</h1>
+
+<div id="billing_ledgers">
+  <% @billing_ledgers.each do |billing_ledger| %>
+    <%= render billing_ledger %>
+    <p>
+      <%= link_to "Show this billing ledger", billing_ledger %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New billing ledger", new_billing_ledger_path %>

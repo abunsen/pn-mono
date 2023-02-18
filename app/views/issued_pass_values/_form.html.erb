@@ -1,0 +1,32 @@
+<%= form_with(model: issued_pass_value) do |form| %>
+  <% if issued_pass_value.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(issued_pass_value.errors.count, "error") %> prohibited this issued_pass_value from being saved:</h2>
+
+      <ul>
+        <% issued_pass_value.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :issued_pass_id, style: "display: block" %>
+    <%= form.text_field :issued_pass_id %>
+  </div>
+
+  <div>
+    <%= form.label :path, style: "display: block" %>
+    <%= form.text_field :path %>
+  </div>
+
+  <div>
+    <%= form.label :value, style: "display: block" %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

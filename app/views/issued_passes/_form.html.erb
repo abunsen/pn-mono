@@ -1,0 +1,52 @@
+<%= form_with(model: issued_pass) do |form| %>
+  <% if issued_pass.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(issued_pass.errors.count, "error") %> prohibited this issued_pass from being saved:</h2>
+
+      <ul>
+        <% issued_pass.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pass_template_id, style: "display: block" %>
+    <%= form.text_field :pass_template_id %>
+  </div>
+
+  <div>
+    <%= form.label :issue_date, style: "display: block" %>
+    <%= form.datetime_field :issue_date %>
+  </div>
+
+  <div>
+    <%= form.label :install_date, style: "display: block" %>
+    <%= form.datetime_field :install_date %>
+  </div>
+
+  <div>
+    <%= form.label :install_ip, style: "display: block" %>
+    <%= form.text_field :install_ip %>
+  </div>
+
+  <div>
+    <%= form.label :install_user_agent, style: "display: block" %>
+    <%= form.text_field :install_user_agent %>
+  </div>
+
+  <div>
+    <%= form.label :delivered_via, style: "display: block" %>
+    <%= form.text_field :delivered_via %>
+  </div>
+
+  <div>
+    <%= form.label :delivered_date, style: "display: block" %>
+    <%= form.datetime_field :delivered_date %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

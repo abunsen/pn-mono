@@ -1,0 +1,2 @@
+module IssuedPassesHelper
+end

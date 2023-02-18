@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @issued_pass %>
+
+<div>
+  <%= link_to "Edit this issued pass", edit_issued_pass_path(@issued_pass) %> |
+  <%= link_to "Back to issued passes", issued_passes_path %>
+
+  <%= button_to "Destroy this issued pass", @issued_pass, method: :delete %>
+</div>

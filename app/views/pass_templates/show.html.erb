@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pass_template %>
+
+<div>
+  <%= link_to "Edit this pass template", edit_pass_template_path(@pass_template) %> |
+  <%= link_to "Back to pass templates", pass_templates_path %>
+
+  <%= button_to "Destroy this pass template", @pass_template, method: :delete %>
+</div>
