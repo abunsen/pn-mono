@@ -1,5 +1,31 @@
 <section class="absolute flex w-full top-0 z-0">
-  <div class="w-7/12">&nbsp;</div>
+  <div class="w-7/12 pt-12 pl-20">
+    <h1 class="text-7xl text-white font-light font-oswald mt-12">
+      <span class="text-ninja-red">PASSNINJA</span>
+      HELPS BUILD <br/> NFC EXPERIENCES <br/> ACROSS MOBILE
+    </h1>
+
+    <p class="text-gray-200 text-2xl mt-8 w-8/12">
+      Use our software and APIs to create, issue, update, and revoke passes for Apple Wallet and Google Pay in minutes instead of months.
+    </p>
+
+    <div>
+      <%= link_to "Get Started for Free", "/", class: "inline-block my-8 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black" %>
+
+      <%= link_to "Learn more", "/", class: "inline-block ml-10 underline font-semibold text-sm text-white" %>        
+    </div>
+
+    <div class="flex text-gray-200">
+      <div class="flex pt-0.5">
+        <%= inline_svg_tag "website/icons/google.svg", class: 'h-7 text-white' %>
+        <%= inline_svg_tag "website/icons/apple.svg", class: 'h-6 text-white' %>
+      </div>
+
+      <span class="text-xs pt-1.5 ml-3">
+        We support Apple iPhone, iWatch and Google Android wallets
+      </span>
+    </div>
+  </div>
 
   <div class="w-5/12">
     <%= inline_svg_tag "website/red-patch.svg", class: 'some-class' %>
@@ -9,31 +35,7 @@
 <section class="w-full top-0 z-0">
   <div class="container mx-auto flex">
     <div class="w-7/12">
-      <h1 class="text-7xl text-white font-light font-oswald mt-12">
-        <span class="text-ninja-red">PASSNINJA</span>
-        HELPS BUILD <br/> NFC EXPERIENCES <br/> ACROSS MOBILE
-      </h1>
-
-      <p class="text-gray-200 text-2xl mt-8 w-8/12">
-        Use our software and APIs to create, issue, update, and revoke passes for Apple Wallet and Google Pay in minutes instead of months.
-      </p>
-
-      <div>
-        <%= link_to "Get Started for Free", "/", class: "inline-block my-8 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black" %>
-
-        <%= link_to "Learn more", "/", class: "inline-block ml-10 underline font-semibold text-sm text-white" %>        
-      </div>
-
-      <div class="flex text-gray-200">
-        <div class="flex pt-0.5">
-          <%= inline_svg_tag "website/icons/google.svg", class: 'h-6 text-white' %>
-          <%= inline_svg_tag "website/icons/apple.svg", class: 'h-6 text-white' %>
-        </div>
-
-        <span class="text-xs pt-1.5 ml-3">
-          We support Apple iPhone, iWatch and Google Android wallets
-        </span>
-      </div>
+      &nbsp;
     </div>
 
     <div class="w-5/12" data-controller="website">
@@ -75,7 +77,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;"venue": "Sagrada Familia Basic Ticket",<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;"ticketType": "General",<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;"expiration": "2023-01-26T17:00:00Z",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"memberName": "John",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"memberName": "John Brown",<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;"amount": "20,00",<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;"access": null,<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;"barcode": "loc.85267798"<br/>
