@@ -27,8 +27,8 @@ export default class extends Controller {
     let w = rect.width;
     console.log("w", w);
     let revealPct = (x / w) * 100;
-    revealPct = revealPct > 100 ? 100 : revealPct;
-    revealPct = revealPct < 0 ? 3 : revealPct;
+    revealPct = revealPct > 100 ? 95 : revealPct;
+    revealPct = revealPct < 0 ? 5 : revealPct;
 
     console.log("revealPct", revealPct);
     if (this.clickedOn) {

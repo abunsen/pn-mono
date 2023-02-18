@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+.custom-underline::after {
+  right: 1.875rem;
+  left: -2.5rem;
+  top: 4rem;
+  bottom: -4rem;
+  position: absolute;
+  content: "";
+  background-color: #c75240;
+  z-index: -1;
+  height: 128px;
 }
 
-*/
+.custom-underline.small::after {
+  width: 125%;
+}
+
+.custom-underline.medium::after {
+  width: 96%;
+}
+
+.custom-underline.large::after {
+  width: 125%;
+}

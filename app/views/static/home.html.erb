@@ -6,9 +6,9 @@
   </div>
 </section>
 
-<section class="absolute w-full top-0 z-0">
+<section class="w-full top-0 z-0">
   <div class="container mx-auto flex">
-    <div class="w-7/12 pt-24">
+    <div class="w-7/12">
       <h1 class="text-7xl text-white font-light font-oswald mt-12">
         <span class="text-ninja-red">PASSNINJA</span>
         HELPS BUILD <br/> NFC EXPERIENCES <br/> ACROSS MOBILE
@@ -37,8 +37,8 @@
     </div>
 
     <div class="w-5/12" data-controller="website">
-      <div class="relative mt-24 w-fit mx-auto" data-action="mouseup->website#revealUnclick mousemove->website#revealSlide">
-        <div class="w-96 mx-auto rounded-md" data-website-target="revealContainer">
+      <div class="relative mt-6 w-fit mx-auto" data-action="mouseup->website#revealUnclick mousemove->website#revealSlide">
+        <div class="w-96 mx-auto rounded-lg" data-website-target="revealContainer">
           <!-- component -->
           <div class="flex items-center justify-center">
             <div class="h-[32rem] w-full bg-gray-800 shadow-2xl rounded-lg overflow-hidden">
@@ -89,15 +89,110 @@
           </div>
           <!-- end of code component -->
         </div>
-        <%= image_tag "website/Slider-Example@2x.jpg", class: "absolute inset-0 h-[32rem] w-96 mx-auto rounded-md", style: "clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)", data: { "website-target": "revealImage" } %>
+        <%= image_tag "website/Slider-Example@2x.jpg", class: "absolute inset-0 h-[32rem] w-96 mx-auto rounded-lg", style: "clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)", data: { "website-target": "revealImage" } %>
 
         <div class="absolute inset-y-0 rounded-lg" style="left: 50%" data-website-target="revealBorder">
           <div class="relative h-full">
             <div class="absolute inset-y-0 bg-gray-800 w-0.5 -ml-px"></div>
-            <button class="h-8 w-8 -ml-4 -mt-8 rounded-full bg-white border border-off-black w-0.5 -ml-px absolute top-1/2 shadow-2xl" data-action="mousedown->website#revealClick"></button>
+            <button class="h-6 w-6 -ml-3 -mt-6 rounded-full bg-off-black border border-white w-0.5 -ml-px absolute top-1/2 shadow-2xl" data-action="mousedown->website#revealClick"></button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="my-48">
+  <div class="text-center">
+    <h2 class="text-6xl text-white font-light font-oswald mt-12">
+      BUILD BETTER USER EXPERIENCES  
+    </h2>
+  </div>
+
+  <div class="mt-24 container mx-auto">
+    <ul class="w-full grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <li class="flex-col">
+        <%= inline_svg_tag "website/enter.svg", class: 'mx-auto' %>
+        <p class="text-white mt-8 font-bold">Allow Convenient<br/> Door Access</p>
+      </li>
+      <li class="flex-col">
+        <%= inline_svg_tag "website/car.svg", class: 'mx-auto' %>
+        <p class="text-white mt-8 font-bold">Create Magic<br/> Car Keys</p>
+      </li>
+      <li class="flex-col">
+        <%= inline_svg_tag "website/customer.svg", class: 'mx-auto' %>
+        <p class="text-white mt-8 font-bold">Drive Customer<br/> Loyalty</p>
+      </li>
+      <li class="flex-col">
+        <%= inline_svg_tag "website/contactless.svg", class: 'mx-auto' %>
+        <p class="text-white mt-8 font-bold">Enable Contactless<br/> Boarding</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="my-24 container mx-auto flex">
+  <div class="w-1/2 pl-12">
+    <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight">
+      <span class="relative custom-underline small">Mobile</span><br/>
+      <span class="relative custom-underline medium">engagement</span><br/>
+      <span class="relative custom-underline large">is changing</span>
+    </h3>  
+  </div>
+
+  <div class="w-1/2">
+    <p class="mt-6 uppercase text-ninja-red text-5xl leading-snug font-light font-oswald tracking-tight">
+      APP FATIGUE IS REAL - <br/> 
+      WE’VE CREATED TOOLS TO <br/> 
+      ALLOW YOU TO BUILD THE NEXT <br/>
+      FRONTIER OF ENGAGEMENT FOR <br/>
+      YOUR CUSTOMERS.
+    </p>
+  </div>
+</section>
+
+<section class="mt-72 container mx-auto flex">
+  <div class="w-1/2 pl-12">
+    <%= image_tag "website/Ticketing@2x.png", class: "hd-96" %>
+  </div>
+
+
+  <div class="w-1/2 pt-48">
+    <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Ticketing</strong>
+    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Create the ticket that your attendees will never lose. Built right into an app that comes with their phone, with the ability to update seats, location and more all via push. </p>
+  </div>
+</section>
+
+<section class="my-32 container mx-auto flex">
+  <div class="w-1/2 pt-48 pl-36">
+    <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Access Control</strong>
+    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Drop those fobs. Build access control into your building, elevator, office or any other antiquated system. All you need is a phone number or email to grant or revoke access with our access control tools.</p>
+  </div>
+
+  <div class="w-1/2">
+    <%= image_tag "website/Access@2x.png", class: "hd-96" %>
+  </div>
+</section>
+
+<section class="my-32 container mx-auto flex">
+  <div class="w-1/2 pl-12">
+    <%= image_tag "website/Loyalty@2x.png", class: "hd-96" %>
+  </div>
+
+
+  <div class="w-1/2 pt-48">
+    <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Loyalty</strong>
+    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Give your customers the rewards they deserve, without any hassle. We're talking instant enrollment, with the ability to push new offers directly to their phone and more.</p>
+  </div>
+</section>
+
+<section class="my-32 container mx-auto flex">
+  <div class="w-1/2 pt-48 pl-36">
+    <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Coupons</strong>
+    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Bring coupons to your customer experience that belong in this century. Coupons that are tailored directly to your customer, with notifications that send redemption rates through the roof.</p>
+  </div>
+
+  <div class="w-1/2">
+    <%= image_tag "website/Coupons@2x.png", class: "hd-96" %>
   </div>
 </section>
