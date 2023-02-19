@@ -68,6 +68,7 @@ export default class extends Controller {
       },
       {
         sample: `import { PassNinjaClient } from '@passninja/passninja-js';
+
 const accountId = '**your-account-id**';
 const apiKey = '**your-api-key**';
 const passNinjaClient = new PassNinjaClient(accountId, apiKey);
@@ -84,11 +85,13 @@ console.log(simplePassObject.serialNumber);`,
       },
       {
         sample: `require "passninja"
+
 pass = Pass.create(
   "demo.coupon",
   discount: '50%',
   memberName: 'John'
 )
+
 puts pass.url
 puts pass.passType
 puts pass.serialNumber
@@ -98,6 +101,7 @@ puts pass.serialNumber
       },
       {
         sample: `import passninja
+
 issued_pass = passninja.create(
     "demo.coupon",
     {
