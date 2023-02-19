@@ -143,17 +143,20 @@ catch (\Exception $exception) {
     ];
   }
 
-  highlightCodeSamples() {
-    this.codeSamples().forEach((code) => {
+  async highlightCodeSamples() {
+    let codeSamples = this.codeSamples();
+    let highlighter = await getHighlighter({
+      theme: "nord",
+      langs: codeSamples.map((s) => s.lang),
+    });
+    codeSamples.forEach((code) => {
       let capTarget =
         "has" + code.target[0].toUpperCase() + code.target.slice(1);
 
-      getHighlighter({ theme: "nord" }).then((highlighter) => {
-        if (this[capTarget])
-          this[code.target].innerHTML = highlighter.codeToHtml(code.sample, {
-            lang: code.lang,
-          });
-      });
+      if (this[capTarget])
+        this[code.target].innerHTML = highlighter.codeToHtml(code.sample, {
+          lang: code.lang,
+        });
     });
   }
 
