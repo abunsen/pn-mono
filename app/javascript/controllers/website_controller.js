@@ -182,7 +182,6 @@ catch (\Exception $exception) {
       .forEach((code) => {
         code.classList.add("hidden");
       });
-
     this[`${lang}SampleCodeTarget`]
       .querySelector("code")
       .classList.remove("hidden");
