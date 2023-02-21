@@ -13,6 +13,7 @@ export default class extends Controller {
     "phpSampleCode",
     "homepageCodeTabs",
     "homepageCodeTabContent",
+    "debugger",
   ];
 
   connect() {
@@ -42,6 +43,19 @@ export default class extends Controller {
       this.revealImageTarget.style.clipPath = `polygon(0 0, ${revealPct}% 0, ${revealPct}% 100%, 0 100%)`;
       this.revealBorderTarget.style.left = `${revealPct}%`;
     }
+  }
+
+  mobileRevealSlide(event) {
+    event.preventDefault();
+    let rect = this.revealContainerTarget.getBoundingClientRect();
+    let x = event.targetTouches[0].pageX - rect.left;
+    let w = rect.width;
+    let revealPct = (x / w) * 100;
+    revealPct = revealPct > 100 ? 95 : revealPct;
+    revealPct = revealPct < 0 ? 5 : revealPct;
+
+    this.revealImageTarget.style.clipPath = `polygon(0 0, ${revealPct}% 0, ${revealPct}% 100%, 0 100%)`;
+    this.revealBorderTarget.style.left = `${revealPct}%`;
   }
 
   codeSamples() {

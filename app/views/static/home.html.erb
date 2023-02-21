@@ -1,5 +1,5 @@
 <section class="absolute flex w-full top-0 z-0">
-  <div class="w-7/12 pt-12 pl-20">
+  <div class="hidden md:block md:w-7/12 pt-12 pl-20">
     <h1 class="text-7xl text-white font-light font-oswald mt-12">
       <span class="text-ninja-red">PASSNINJA</span>
       HELPS BUILD <br class="hidden lg:block" /> NFC EXPERIENCES <br class="hidden lg:block" /> ACROSS MOBILE
@@ -27,19 +27,23 @@
     </div>
   </div>
 
-  <div class="w-5/12">
+  <div class="w-full md:w-5/12">
     <%= inline_svg_tag "website/red-patch.svg", class: 'some-class' %>
   </div>
 </section>
 
 <section class="w-full top-0 z-0">
-  <div class="container mx-auto flex">
-    <div class="w-7/12">
-      &nbsp;
+  <div class="container mx-auto flex-col md:flex md:flex-row">
+    <div class="w-full md:w-7/12">
+      <h1 class="text-5xl text-white font-light font-oswald text-center relative md:hidden">
+        PASSNINJA HELPS BUILD <br /> 
+        NFC EXPERIENCES ACROSS MOBILE
+      </h1>
     </div>
 
-    <div class="w-5/12" data-controller="website">
-      <div class="relative mt-6 w-fit mx-auto" data-action="mouseup->website#revealUnclick mousemove->website#revealSlide">
+    <div class="w-full md:w-5/12" data-controller="website">
+      <div data-website-target="debugger" class="relative"></div>
+      <div class="relative mt-6 w-fit mx-auto" data-action="mouseup->website#revealUnclick mousemove->website#revealSlide touchmove->website#mobileRevealSlide">
         <div class="w-96 mx-auto rounded-lg" data-website-target="revealContainer">
           <!-- component -->
           <div class="flex items-center justify-center">
@@ -61,9 +65,32 @@
         <div class="absolute inset-y-0 rounded-lg" style="left: 50%" data-website-target="revealBorder">
           <div class="relative h-full">
             <div class="absolute inset-y-0 bg-gray-800 w-0.5 -ml-px"></div>
-            <button class="h-6 w-6 -ml-3 -mt-6 rounded-full bg-off-black border border-white w-0.5 absolute top-1/2 shadow-2xl" data-action="mousedown->website#revealClick"></button>
+            <button class="h-8 w-8 -ml-4 -mt-8 rounded-full bg-off-black border border-white w-0.5 absolute top-1/2 shadow-2xl md:h-6 md:w-6 md:-ml-3 md:-mt-6" data-action="mousedown->website#revealClick"></button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="md:hidden flex-col text-center">
+      <p class="text-gray-200 text-2xl mt-8 w-10/12 mx-auto">
+        Use our software and APIs to create, issue, update, and revoke passes for Apple Wallet and Google Pay in minutes instead of months.
+      </p>
+
+      <div>
+        <%= link_to "Get Started for Free", "/", class: "inline-block my-8 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black" %>
+
+        <%= link_to "Learn more", "/", class: "inline-block ml-10 underline font-semibold text-sm text-white" %>        
+      </div>
+
+      <div class="flex text-gray-200 w-10/12 mx-auto">
+        <div class="flex pt-0.5">
+          <%= inline_svg_tag "website/icons/google.svg", class: 'h-7 text-white' %>
+          <%= inline_svg_tag "website/icons/apple.svg", class: 'h-6 text-white' %>
+        </div>
+
+        <span class="text-xs pt-1.5 ml-3">
+          We support Apple iPhone (iOS), iWatch and Google Android wallets
+        </span>
       </div>
     </div>
   </div>
@@ -71,7 +98,7 @@
 
 <section class="my-48">
   <div class="text-center">
-    <h2 class="text-6xl text-white font-light font-oswald mt-12">
+    <h2 class="text-6xl text-white font-light font-oswald mt-12 relative">
       BUILD BETTER USER EXPERIENCES  
     </h2>
   </div>
@@ -98,17 +125,17 @@
   </div>
 </section>
 
-<section class="my-24 container mx-auto flex">
-  <div class="w-1/2 pl-12">
-    <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight">
+<section class="my-24 container flex flex-col md:flex-row md:mx-auto">
+  <div class="w-full md:w-1/2 md:pl-12 mb-24 ml-8 md:ml-0 md:mb-0">
+    <h3 class="uppercase text-7xl font-light font-oswald leading-tight text-white tracking-tight md:text-8xl">
       <span class="relative custom-underline small">Mobile</span><br/>
       <span class="relative custom-underline medium">engagement</span><br/>
       <span class="relative custom-underline large">is changing</span>
     </h3>  
   </div>
 
-  <div class="w-1/2">
-    <p class="mt-6 uppercase text-ninja-red text-5xl leading-snug font-light font-oswald tracking-tight">
+  <div class="w-full md:w-1/2">
+    <p class="mt-6 uppercase text-ninja-red text-4xl leading-snug font-light font-oswald tracking-tight md:text-5xl ml-1">
       APP FATIGUE IS REAL - <br/> 
       WE’VE CREATED TOOLS TO <br/> 
       ALLOW YOU TO BUILD THE NEXT <br/>
@@ -118,77 +145,78 @@
   </div>
 </section>
 
-<section class="mt-72 container mx-auto flex">
-  <div class="w-1/2 pl-12">
+<section class="mt-32 md:mt-72 container mx-auto flex-col flex md:flex-row">
+  <div class="w-full md:w-1/2 pl-12">
     <%= image_tag "website/Ticketing@2x.png", class: "hd-96" %>
   </div>
 
 
-  <div class="w-1/2 pt-48">
+  <div class="w-full ml-8 md:w-1/2 md:pt-48">
     <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Ticketing</strong>
-    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Create the ticket that your attendees will never lose. Built right into an app that comes with their phone, with the ability to update seats, location and more all via push. </p>
+    <p class="font-light text-gray-200 text-2xl mt-8 w-11/12 md:w-9/12">Create the ticket that your attendees will never lose. Built right into an app that comes with their phone, with the ability to update seats, location and more all via push. </p>
   </div>
 </section>
 
-<section class="my-32 container mx-auto flex">
-  <div class="w-1/2 pt-48 pl-36">
+<section class="my-32 container mx-auto flex-col-reverse flex md:flex-row">
+  <div class="w-full ml-8 md:w-1/2 md:pt-48 md:pl-36">
     <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Access Control</strong>
-    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Drop those fobs. Build access control into your building, elevator, office or any other antiquated system. All you need is a phone number or email to grant or revoke access with our access control tools.</p>
+    <p class="font-light text-gray-200 text-2xl mt-8 w-11/12 md:w-9/12">Drop those fobs. Build access control into your building, elevator, office or any other antiquated system. All you need is a phone number or email to grant or revoke access with our access control tools.</p>
   </div>
 
-  <div class="w-1/2">
+  <div class="w-full md:w-1/2">
     <%= image_tag "website/Access@2x.png", class: "hd-96" %>
   </div>
 </section>
 
-<section class="my-32 container mx-auto flex">
-  <div class="w-1/2 pl-12">
+<section class="my-32 container mx-auto flex-col flex md:flex-row">
+  <div class="w-full md:w-1/2 pl-12">
     <%= image_tag "website/Loyalty@2x.png", class: "hd-96" %>
   </div>
 
 
-  <div class="w-1/2 pt-48">
+  <div class="w-full ml-8 md:w-1/2 md:pt-48">
     <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Loyalty</strong>
-    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Give your customers the rewards they deserve, without any hassle. We're talking instant enrollment, with the ability to push new offers directly to their phone and more.</p>
+    <p class="font-light text-gray-200 text-2xl mt-8 w-11/12 md:w-9/12">Give your customers the rewards they deserve, without any hassle. We're talking instant enrollment, with the ability to push new offers directly to their phone and more.</p>
   </div>
 </section>
 
-<section class="mt-32 container mx-auto flex">
-  <div class="w-1/2 pt-48 pl-36">
+<section class="my-32 container mx-auto flex-col-reverse flex md:flex-row">
+  <div class="w-full ml-8 md:w-1/2 md:pt-48 md:pl-36">
     <strong class="uppercase text-ninja-red text-5xl font-light font-oswald">Coupons</strong>
-    <p class="font-light text-gray-200 text-2xl w-9/12 mt-8">Bring coupons to your customer experience that belong in this century. Coupons that are tailored directly to your customer, with notifications that send redemption rates through the roof.</p>
+    <p class="font-light text-gray-200 text-2xl mt-8 w-11/12 md:w-9/12">Bring coupons to your customer experience that belong in this century. Coupons that are tailored directly to your customer, with notifications that send redemption rates through the roof.</p>
   </div>
 
-  <div class="w-1/2">
-    <%= image_tag "website/Coupons@2x.png", class: "hd-96" %>
+  <div class="w-full md:w-1/2">
+    <%= image_tag "website/Coupons@2x.png", class: "hd-96 ml-8 md:ml-0" %>
   </div>
 </section>
 
-<section class="mt-8 relative h-[650px]">
-  <div class="h-[650px] w-full md:w-9/12 bg-gray-600 absolute"></div>
+<section class="mt-8 relative h-[1150px] md:h-[650px]">
+  <div class="h-[1150px] md:h-[650px] w-11/12 bg-gray-600 absolute"></div>
 
   <div class="absolute w-full pt-12">
-    <div class="container mx-auto flex">
+    <div class="md:container mx-auto flex">
       <div class="w-3/12">
-        <%= image_tag "website/Star.png", class: "ml-8" %>
+        <%= image_tag "website/Star.png", class: "md:ml-8" %>
       </div>
 
       <div class="w-9/12">
-        <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight mt-4">
-          <span class="relative custom-underline left-aligned large z-20">Built for developers</span>
+        <h3 class="uppercase font-light font-oswald leading-tight text-white tracking-tight mt-4 text-5xl md:text-8xl">
+          <span class="relative custom-underline left-aligned large z-20 hidden md:inline-block">Built for developers</span>
+          <span class="relative mobile custom-underline left-aligned large z-20 md:hidden">Built for developers</span>
         </h3> 
 
-        <%= link_to "Check out our Tutorials and Docs", "/tutorials", class: "inline-block my-8 mr-12 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black float-right" %>
+        <%= link_to "Check out our Tutorials and Docs", "/tutorials", class: "inline-block my-16 font-semibold border border-white px-5 py-2 rounded-full text-sm bg-white text-black float-right mr-6 md:mr-12" %>
       </div>
     </div> <!-- end of section header -->
 
-    <div class="container mt-16 mx-auto grid grid-cols-1 md:grid-cols-3">
+    <div class="container ml-4 mt-2 mx-auto grid grid-cols-2 md:grid-cols-3">
       <div class="flex-col">
         <%= image_tag "website/bullhorn.png", class: "" %>
         <strong class="text-white text-xl inline-block my-6 font-bold">
           API first
         </strong>
-        <p class="text-white w-11/12 text-lg">
+        <p class="text-white w-11/12 md:text-lg">
           We built the API we wish existed, making it possible to create and issue a pass in just two simple API calls with the client library of your choice; in Swift, React Native, Python, Ruby & PHP.
         </p>
       </div>
@@ -198,17 +226,17 @@
         <strong class="text-white text-xl inline-block my-6 font-bold">
           Secure
         </strong>
-        <p class="text-white w-11/12 text-lg">
+        <p class="text-white w-11/12 md:text-lg">
           We encrypt all communications and never store personally identifiable information about your customers on our servers.
         </p>
       </div>
 
-      <div class="flex-col">
+      <div class="flex-col mt-12 md:mt-0">
         <%= inline_svg_tag "website/spanner.svg", class: "" %>
         <strong class="text-white text-xl inline-block my-6 font-bold">
           Maintenance free
         </strong>
-        <p class="text-white w-11/12 text-lg">
+        <p class="text-white w-11/12 md:text-lg">
           Never worry about expiring certificates, server uptime, cross-platform compatibility or NFC reader configuration. It’s all baked into the platform.
         </p>
       </div>
@@ -223,8 +251,8 @@
     With pre-built libraries in your favorite language
   </h3>
 
-  <div class="flex text-left" data-controller="website">
-    <div class="w-1/2">
+  <div class="text-left flex-col flex md:flex-row" data-controller="website">
+    <div class="w-full md:w-1/2 md:ml-32">
       <div>
         <ul class="flex justify-between mx-auto w-3/5" data-website-target="homepageCodeTabs">
           <li data-action="click->website#toggleCodeSampleTab">
@@ -256,8 +284,9 @@
         </div>
       </div>
     </div>
-    <div class="w-1/2">
-      <ol class="flex-col mt-8 w-3/5">
+
+    <div class="w-full md:w-1/2 ml-12 md:ml-0">
+      <ol class="flex-col mt-8 w-4/5 md:w-3/5">
         <li class="mb-8 text-white" data-action="click->website#highlightCode">
           <strong class="font-semibold text-2xl mb-2 inline-block">1. Activate your account</strong><br/>
           <p class="text-lg">Simple signup, verify your account via  email and you're ready.</p>
@@ -279,19 +308,22 @@
 </section>
 
 <section class="my-36 container mx-auto">
-  <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight mt-4 flex ml-16">
-    <span class="bg-ninja-red px-4 py-3 mt-[3.3rem]">
-      <%= image_tag "website/ninja@2x.png", class: "h-56 relative -top-16" %>
+  <h3 class="uppercase font-light font-oswald leading-tight text-white tracking-tight mt-4 flex ml-16 text-4xl md:text-8xl">
+    <span class="bg-ninja-red px-4 py-2 mt-[1.57rem] md:mt-[2rem] md:py-4">
+      <%= image_tag "website/ninja@2x.png", class: "h-24 md:h-56 relative -top-6 md:-top-16" %>
     </span>
 
     <span>
-      <span class="relative custom-underline medium">We're a 
+      <span class="relative custom-underline large hidden md:inline-block">We're a 
+      partner</span>
+      <span class="relative mobile custom-underline left-aligned medium md:hidden">We're a 
       partner</span><br/>
-      <span class="relative custom-underline medium">not just a provider</span>
+      <span class="relative custom-underline large hidden md:inline-block">not just a provider</span>
+      <span class="relative mobile custom-underline left-aligned medium md:hidden">not just a provider</span>
     </span>
   </h3> 
 
-  <p class="pl-60 text-2xl font-light text-white mt-12 w-4/6">
+  <p class="text-2xl font-light text-white mt-12 w-full pl-12 md:w-4/6 md:pl-60">
     We're privately owned, and in this for the long-haul. Since 2018 we've handled hundreds of thousands of NFC scans for companies of all sizes. Our support team is available around the clock.
   </p>
 </section>

@@ -1,4 +1,4 @@
-<header id="header" class="bg-transparent relative z-10">
+<header id="header" class="bg-transparent relative z-10 w-11/12 mx-auto md:w-full">
   <nav class="flex justify-between py-8 text-white">
     <div class="flex">
       <div class="mr-16">
@@ -11,7 +11,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-wrap d-flex flex-column align-items-center flex-md-row pt-2">
+      <div class="hidden md:block md:flex-column align-items-center flex-md-row pt-2">
         <ul class="flex uppercase text-sm">
           <li class="mx-4">
             <%= link_to "Home", "/", class: "text-white font-semibold underline transition-all duration-500 hover:text-gray-400" %>
@@ -34,7 +34,7 @@
         </ul>
         <%= link_to "Get Started for Free", "/", class: "hidden ml-8 font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 hover:bg-white hover:text-black" %>
       </div>
-      <%= link_to "Get Started for Free", "/", class: "ml-8 font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 hover:bg-white hover:text-black md:hidden lg:inline-block" %>
+      <%= link_to "Get Started for Free", "/", class: "font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 hover:bg-white hover:text-black md:hidden md:ml-8 lg:inline-block" %>
     </div>
   </nav>
 </header>

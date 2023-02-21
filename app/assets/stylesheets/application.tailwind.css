@@ -26,6 +26,18 @@
   height: 72px;
 }
 
+.mobile.custom-underline.left-aligned::after {
+  right: 1.875rem;
+  left: -0.8rem;
+  top: 2.2rem;
+  bottom: -2.2rem;
+  position: absolute;
+  content: "";
+  background-color: #c75240;
+  z-index: -1;
+  height: 48px;
+}
+
 .custom-underline.small::after {
   width: 125%;
 }
