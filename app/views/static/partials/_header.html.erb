@@ -1,0 +1,40 @@
+<header id="header" class="bg-transparent relative z-10">
+  <nav class="flex justify-between py-8 text-white">
+    <div class="flex">
+      <div class="mr-16">
+        <%= link_to "/" do %>
+          <%= inline_svg_tag "website/logo.svg", class: 'mt-1' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="flex">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-wrap d-flex flex-column align-items-center flex-md-row pt-2">
+        <ul class="flex uppercase text-sm">
+          <li class="mx-4">
+            <%= link_to "Home", "/", class: "text-white font-semibold underline transition-all duration-500 hover:text-gray-400" %>
+          </li>
+          <li class="mx-4">
+            <%= link_to "About", "/about", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+          </li>
+          <li class="mx-4">
+            <%= link_to "Pricing", "/pricing", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+          </li>
+          <li class="mx-4">
+            <%= link_to "Tutorials", "/tutorials", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+          </li>
+          <li class="mx-4">
+            <%= link_to "Docs", "/documentation", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+          </li>
+          <li class="mx-4">
+            <%= link_to "Contact", "/contact", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+          </li>
+        </ul>
+        <%= link_to "Get Started for Free", "/", class: "hidden ml-8 font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 hover:bg-white hover:text-black" %>
+      </div>
+      <%= link_to "Get Started for Free", "/", class: "ml-8 font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 hover:bg-white hover:text-black md:hidden lg:inline-block" %>
+    </div>
+  </nav>
+</header>

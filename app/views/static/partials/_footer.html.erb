@@ -1,0 +1,85 @@
+<% if local_assigns[:show_cta] && show_cta %>
+  <div class="relative bg-ninja-red mt-36">
+    <div class="container mx-auto relative -top-48">
+      <div class="bg-off-black border border-ninja-red rounded-2xl w-10/12 mx-auto p-16 -mt-6 text-center">
+        <h4 class="text-6xl text-ninja-red font-light font-oswald text-center">
+          IT’S EASY TO GET STARTED. <br/>
+          SIGN UP FOR FREE.
+        </h4>
+
+        <p class="text-center text-2xl font-light text-white mt-12 w-1/2 mx-auto">
+          Create your account and build a pass in minutes or get in touch with us.
+        </p>
+
+        <%= link_to "Get Started for Free", "/", class: "inline-block mt-6 mx-auto font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 bg-white text-black" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<footer class="bg-ninja-red <% unless local_assigns[:show_cta] %>pt-16<% end %> flex-col text-white">
+  <div class="container mx-auto">
+    <div class="flex justify-between">
+      <div>
+        <%= link_to "/" do %>
+          <%= inline_svg_tag "website/logo.svg", class: 'mt-1' %>
+        <% end %>
+
+        <div class="flex w-72 mt-4 mb-2">
+          <%= inline_svg_tag "website/icons/location.svg", class: 'w-8 pb-2' %>
+
+          <p class="text-sm text-bold ml-2">
+            7171 Bay Dr. Ste. 9 <br/>
+            Miami Beach, FL 33141
+          </p>
+        </div>
+
+        <div class="flex w-72 mb-6">
+          <%= inline_svg_tag "website/icons/mail.svg", class: 'h-8 w-8 pb-1' %>
+
+          <p class="text-sm text-bold ml-2 pt-1">
+            <%= link_to "info@passninja.com", "mailto:info@passninja.com", class: "underline text-white" %>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <ul class="flex uppercase text-sm">
+            <li class="mx-4">
+              <%= link_to "Home", "/", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+            </li>
+            <li class="mx-4">
+              <%= link_to "About", "/about", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+            </li>
+            <li class="mx-4">
+              <%= link_to "Pricing", "/pricing", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+            </li>
+            <li class="mx-4">
+              <%= link_to "Tutorials", "/tutorials", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+            </li>
+            <li class="mx-4">
+              <%= link_to "Docs", "/documentation", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+            </li>
+            <li class="mx-4">
+              <%= link_to "Contact", "/contact", class: "text-gray-300 transition-all duration-500 hover:text-gray-400" %>
+            </li>
+          </ul>
+      </div>
+      
+    </div>
+
+    <hr class="my-4" />
+
+    <div class="flex justify-between pb-16">
+      <div>
+        <!-- socials -->
+      </div>
+
+      <div class="text-xs">
+        &copy; <%= Time.zone.now.year %> - PassNinja | All rights reserved
+      </div>
+    </div>
+  </div> 
+</footer>
+
+<div class="pt-32 hidden"></div>

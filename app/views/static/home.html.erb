@@ -2,7 +2,7 @@
   <div class="w-7/12 pt-12 pl-20">
     <h1 class="text-7xl text-white font-light font-oswald mt-12">
       <span class="text-ninja-red">PASSNINJA</span>
-      HELPS BUILD <br/> NFC EXPERIENCES <br/> ACROSS MOBILE
+      HELPS BUILD <br class="hidden lg:block" /> NFC EXPERIENCES <br class="hidden lg:block" /> ACROSS MOBILE
     </h1>
 
     <p class="text-gray-200 text-2xl mt-8 w-8/12">
@@ -22,7 +22,7 @@
       </div>
 
       <span class="text-xs pt-1.5 ml-3">
-        We support Apple iPhone, iWatch and Google Android wallets
+        We support Apple iPhone (iOS), iWatch and Google Android wallets
       </span>
     </div>
   </div>
@@ -216,35 +216,7 @@
   </div>
 </section>
 
-<section class="my-32 container mx-auto flex">
-  <div class="w-1/2 pl-12">
-    <p class="mt-6 uppercase text-ninja-red text-5xl leading-snug font-light font-oswald tracking-tight text-right mr-16">
-      Here's what our<br/> 
-      customers think.
-    </p>
-  </div>
-
-  <div class="w-1/2">
-    <div class="w-4/5 flex-col">
-      <%= image_tag "website/avatar2@2x.png", class: "rounded-full h-36 pl-16 my-8" %>
-
-      <div class="relative">
-        <div class="blockquote pl-16">
-          <blockquote class="text-white font-light text-2xl pl-2">
-            This works smooth & amazing, yes this is exactly what we‘re looking for! I‘ll play a bit with this, really like your work.”
-          </blockquote>
-        </div>
-      </div>
-
-      <p class="mt-8 text-white pl-16 ml-2">
-        <strong class="text-ninja-red font-semibold">Sebastian Hirth</strong>
-        <br/>
-        Founder / <%= link_to "Blackmite", "https://blackmite.com/index", target: "_blank" %>
-      </p>
-
-    </div>
-  </div>
-</section>
+<%= render partial: 'static/partials/testimonial' %>
 
 <section class="my-36 container mx-auto text-center">
   <h3 class="mt-6 mb-12 mx-auto uppercase text-ninja-red text-5xl leading-snug font-light font-oswald tracking-tight">
@@ -307,7 +279,7 @@
 </section>
 
 <section class="my-36 container mx-auto">
-  <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight mt-4 flex">
+  <h3 class="uppercase text-8xl font-light font-oswald leading-tight text-white tracking-tight mt-4 flex ml-16">
     <span class="bg-ninja-red px-4 py-3 mt-[3.3rem]">
       <%= image_tag "website/ninja@2x.png", class: "h-56 relative -top-16" %>
     </span>
