@@ -12,13 +12,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-off-black">
+  <body class="<%= @bg_color ? @bg_color : 'bg-off-black' %>">
     <div class="container mx-auto">
       <%= render partial: 'static/partials/header' %>
     </div>
-    <main class="overflow-hidden">
+    <main class="overflow-hidden <%= 'bg-off-black' if @bg_color %>">
       <%= yield %>
     </main>
-    <%= render partial: 'static/partials/footer', locals: { show_cta: true } %>
+    <%= render partial: 'static/partials/footer', locals: { show_cta: @show_cta } %>
   </body>
 </html>
