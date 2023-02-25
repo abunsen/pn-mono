@@ -9,6 +9,9 @@ class StaticController < ApplicationController
   def about
   end
 
+  def pricing
+  end
+
   private
   def set_bg_color
     @bg_color = 'bg-ninja-red'
