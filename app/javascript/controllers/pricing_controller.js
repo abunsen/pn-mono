@@ -53,7 +53,7 @@ export default class extends Controller {
     this.sumTarget.classList.remove("text-7xl");
     this.sumTarget.classList.remove("mt-36");
     this.monthlyTotalWrapperTarget.classList.remove("hidden");
-    this.sumTarget.classList.add("text-8xl");
+    this.sumTarget.classList.add("text-9xl");
 
     this.monthlyTotalNumberTarget.innerHTML = total;
     this.signupLinkTarget.href = `/#with-card:${total}`;
