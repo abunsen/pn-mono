@@ -1,177 +1,99 @@
 <section class="bg-ninja-red">
   <div class="text-center pt-12 w-full">
     <h1 class="uppercase text-6xl text-white font-light font-oswald mx-auto">Simple pricing you can understand</h1>
-    <strong class="inline-block text-white text-2xl w-11/12 md:w-4/12 mx-auto mt-8 mb-3">
+    <span class="inline-block font-light text-gray-200 text-2xl w-11/12 md:w-4/12 mx-auto mt-8 mb-3">
       Number of pass templates + Number of active passes = Your price
-    </strong>
+    </span>
   </div>
 
-  <section class="container mx-auto mt-12">
-    <div class="flex">
-      <div class="w-7/12 flex mb-12">
-        <div class="rounded-xl bg-white flex-col p-6 h-96 shadow-md w-1/2">
-          <strong class="text-2xl block">
-            Pass templates
+  <section class="container mx-auto mt-10">
+    <div class="flex flex-col md:flex-row" data-controller="pricing">
+      <div class="flex mb-12 w-full px-2 flex-col md:px-0 md:w-7/12 md:flex-row">
+        <div class="rounded-xl bg-white flex-col p-8 h-96 shadow-md w-full md:w-1/2">
+          <strong class="mt-7 text-2xl block">
+            1. Pass templates
           </strong>
           <p class="text-gray-500 text-sm">
             How many different pass designs do you need?
           </p>
           
           <div class="text-4xl font-bold my-4 pb-2">
-            <input type="number" class="block w-full rounded-md border-gray-300 sm:text-sm" placeholder="1">
+            <input type="number" class="block w-full rounded-md border-gray-300 sm:text-sm" value="2" data-action="change->pricing#handleTemplateCountUpdate" data-pricing-target="passTemplateCount">
           </div>
 
           <div class="text-xl font-bold border-t py-2">
-            <span class="font-normal block text-sm">A "pass template" is a template for all of your installed passes, designed by you.</span>
+            <span class="font-normal block text-sm">A "pass template" is a template for all of your installed passes, designed by you</span>
             <span class="font-normal mt-2 block text-sm text-gray-500">We charge $5 per pass template</span>
           </div>
         </div>
 
-        <div class="w-1/2 relative">
-          <div class="absolute -left-6 top-40 shadow bg-white rounded-md py-3 px-4 border text-xl font-bold">+</div>
-          <div class="rounded-tr-xl rounded-br-xl bg-gray-700 text-white flex-col p-8 mt-7 shadow-md">
+        <div class="relative w-full md:w-1/2">
+          <div class="w-1/6 mt-4 text-center mx-auto shadow bg-white rounded-md py-3 px-4 border text-xl font-bold md:w-auto md:absolute md:-left-6 md:top-40">+</div>
+          <div class="rounded-tl-xl rounded-bl-xl rounded-tr-xl rounded-br-xl bg-gray-700 text-white flex-col p-8 mt-7 shadow-md md:rounded-tl-none md:rounded-bl-none">
            <strong class="text-2xl block">
-              Active passes
+              2. Active passes
             </strong>
             <p class="text-gray-400 text-sm">
-              How many passes do you plan to install?
+              How many NFC passes do you plan to install?
             </p>
             
             <div class="text-4xl font-bold my-4 pb-2">
-              <input type="number" class="block w-full rounded-md border-gray-300 sm:text-sm" placeholder="1000">
+              <input type="number" class="block w-full rounded-md border-gray-300 text-gray-900 sm:text-sm" value="500" step="100" data-action="change->pricing#handlePassCountUpdate" data-pricing-target="activePassCount">
               <input type="range"
-                   min="0" max="10000000" value="100000" step="100000" class="bg-ninja-red rounded-full appearance-none cursor-pointer w-full h-2" />
+               min="0" max="150000" value="500" step="1000" class="bg-ninja-red rounded-full appearance-none cursor-pointer w-full h-2" data-action="change->pricing#handlePassCountSlide" data-pricing-target="activePassCountSlider" />
             </div>
 
             <div class="text-xl font-bold py-2">
               <span class="font-normal block text-sm">An "active pass" is any pass that has been installed and has not yet expired in a given month</span>
-              <span class="font-normal mt-2 block text-sm text-gray-400">We charge $0.15 per active pass</span>
+              <span class="font-normal mt-2 block text-sm text-gray-400">We charge $0.11 per active pass</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="w-5/12">
-        $232/mo
+      <div class="w-full flex text-white flex-col md:w-5/12 md:flex-row">
+        <div class="text-8xl mx-8 mt-1 text-center md:text-left md:mt-32">=</div>
+        <div class="text-9xl font-semibold mt-1 text-center md:mt-28 md:text-ledt" data-pricing-target="sum">
+          <span data-pricing-target="sumContact"></span>
+          <div data-pricing-target="monthlyTotalWrapper">
+            $<span data-pricing-target="monthlyTotalNumber">65</span><span class="text-xl">/mo</span>
+          </div>
+          <div class="text-lg text-center">
+            <hr class="mt-3 mb-6">
+            <%= link_to "Get Started for Free", "/", class: "mx-auto hidden font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 hover:bg-white hover:text-black md:inline-block", data: { 'pricing-target': 'signupLink' } %>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <p class="text-gray-200 text-center w-9/12 mx-auto pb-12">
+    Every verified account receives $10 in free credits to start.
+    <br/>
+    <%= link_to "Get Started for Free", "/", class: "inline-block font-semibold border border-white px-5 py-2 rounded-full text-sm transition-all duration-500 mt-4 hover:bg-white hover:text-black" %>
+  </p>
 </section>
 
-<section class="container mx-auto bg-off-black text-center mt-12 pt-24">
-  <h2 class="text-6xl text-white font-light font-oswald mx-auto uppercase">CALCULATE YOUR MONTHLY SPEND</h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto mt-12 text-center">
-    <div class="md:border-r md:border-white mb-24">
-      <%= image_tag "website/grundy.jpg", class: "rounded-full h-32 mx-auto block" %>
-      <strong class="font-semibold block text-white mt-4">Richard Grundy</strong>
-      <span class="font-light text-ninja-red text-sm">Co-founder</span>
-
-      <p class="font-light text-sm text-white mt-2 w-10/12 mx-auto">
-        Richard leads all of the product ideationand vision. Originally born in Argentina, Richard immigrated to the U.S. in 2016 to work in research and development around near field communications. You can find him on his boat when he's not dreaming up the future for PassNinja.
-      </p>
-    </div>
-
-    <div class="md:border-r md:border-white mb-24">
-      <%= image_tag "website/augustus.jpg", class: "rounded-full h-32 mx-auto block" %>
-      <strong class="font-semibold block text-white mt-4">Augustus Barajas</strong>
-      <span class="font-light text-ninja-red text-sm">CEO</span>
-
-      <p class="font-light text-sm text-white mt-2 w-10/12 mx-auto">
-        Augustus has extensive experience in dev tooling, serving as a 4x CTO in former roles. Operational experience at hyper-scale startups makes his contributions to PassNinja invaluable. You can find him reading a book or working out when he's not leading the charge at PassNinja.
-      </p>
-    </div>
-
-    <div class="mb-24">
-      <%= image_tag "website/andres.jpg", class: "rounded-full h-32 mx-auto block" %>
-      <strong class="font-semibold block text-white mt-4">Andres Weber</strong>
-      <span class="font-light text-ninja-red text-sm">Full Stack Developer
-</span>
-
-      <p class="font-light text-sm text-white mt-2 w-10/12 mx-auto">
-        Andres is one half of the dev team! He was raised in New York, lived in Boston, tried out LA but realized Florida really has some incredible weather! While he's not playing with computers at work he’s a local Dungeon Master, does nerdy things, bakes bread and loves climbing rocks.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="mt-8 relative h-[1950px] md:h-[900px]">
-  <div class="h-[1850px] md:h-[850px] w-9/12 md:w-6/12 bg-gray-600 absolute"></div>
-
-  <div class="absolute w-full pt-12">
-    <div class="md:container mx-auto flex">
-
-      <div class="w-full text-center">
-        <h3 class="uppercase font-light font-oswald leading-tight text-ninja-red tracking-tight mt-4 text-5xl md:text-6xl">
-          OUR VALUES
-        </h3> 
-      </div>
-    </div> <!-- end of section header -->
-
-    <div class="container mx-auto">
-      <div class="w-11/12 mt-16 mx-auto grid grid-cols-1 md:grid-cols-3">
-        <div class="flex-col mt-12">
-          <%= inline_svg_tag "website/letter-v.svg", class: "" %>
-          <strong class="text-white text-xl inline-block my-6 font-bold">
-            Honesty over everything
-          </strong>
-          <p class="text-white w-11/12 md:text-lg">
-            We believe that honesty is the most important quality and aim to be clear and honest with everyone on the team as well as every single customer.
-          </p>
-        </div>
-
-        <div class="flex-col mt-12">
-          <%= inline_svg_tag "website/Star.svg", class: "" %>
-          <strong class="text-white text-xl inline-block my-6 font-bold">
-            Bleeding Edge
-          </strong>
-          <p class="text-white w-11/12 md:text-lg">
-            We love innovation and work with customers to cross pollinate ideas that have worked in other use cases.
-          </p>
-        </div>
-
-        <div class="flex-col mt-12">
-          <%= inline_svg_tag "website/fast.svg", class: "" %>
-          <strong class="text-white text-xl inline-block my-6 font-bold">
-            Fast is a first principle
-          </strong>
-          <p class="text-white w-11/12 md:text-lg">
-            We are committed to breakneck speed. If we say something can be done is because we’ve probably done it and can show you how.
-          </p>
-        </div>
-
-
-        <!-- row 2 -->
-        <div class="flex-col mt-12">
-          <%= inline_svg_tag "website/charity.svg", class: "" %>
-          <strong class="text-white text-xl inline-block my-6 font-bold">
-            Diversity is key
-          </strong>
-          <p class="text-white w-11/12 md:text-lg">
-            Creating great tools requires knowing a lot of makers. We love to learn what makes each builder unique so we can help elevate their craft.
-          </p>
-        </div>
-
-        <div class="flex-col mt-12">
-          <%= inline_svg_tag "website/spanner.svg", class: "" %>
-          <strong class="text-white text-xl inline-block my-6 font-bold">
-            Keep it tight
-          </strong>
-          <p class="text-white w-11/12 md:text-lg">
-            We seek to minimize our footprint and promote only what’s needed. A well made service should be intuitive to use and reliable to build upon.
-          </p>
-        </div>
-
-        <div class="flex-col mt-12">
-          <%= inline_svg_tag "website/shield.svg", class: "" %>
-          <strong class="text-white text-xl inline-block my-6 font-bold">
-            Privacy built in
-          </strong>
-          <p class="text-white w-11/12 md:text-lg">
-            In a data centric world, users require total control of their data. Our service is built on payments grade security with consumer privacy in mind.
-          </p>
-        </div>
-      </div>
-    </div> <!-- end of container -->
+<section class="mx-auto bg-gray-600 text-center pt-24">
+  <h2 class="text-6xl text-white font-light font-oswald mx-auto uppercase">FREQUENTLY ASKED QUESTIONS</h2>
+  <div class="container mx-auto">
+    <ul class="flex-col mx-auto pb-12 text-left w-11/12 md:w-7/12">
+      <li class="my-8 text-white">
+        <strong class="font-semibold text-lg">I don’t have an NFC certificate, can I still make passes with your service?</strong>
+        <p class="font-light text-lg mt-2">Yes! As an Apple and Google platform partner, we allow our customers to sign and issue NFC passes using our certificate. Once you get your own NFC certificate(s) you can swap in your Apple passTypeId and/or Google collectorId to your account so you can continue using our service as needed.</p>
+      </li>
+      <li class="my-8 text-white">
+        <strong class="font-semibold text-lg">Will your service only work with your readers? Or will other VAS or SmartTap compatible readers work?</strong>
+        <p class="font-light text-lg mt-2">Our pass service will work with any Apple VAS or Google Smarttap compatible readers. Configuring these readers is a pain so we simplify this process when you purchase them through us. What’s more, if you go with our FloVAS IoT units you’ll be able to manage and update them remotely over WiFi and not require a host PC.</p>
+      </li>
+      <li class="my-8 text-white">
+        <strong class="font-semibold text-lg">I have my own NFC readers and can’t read your NFC passes. Why? Every time I read your passes I get a different ID.</strong>
+        <p class="font-light text-lg mt-2">The Apple and Google NFC passes do not behave like simple NFC cards with fixed UUID. They have payment grade security which means that every time you scan them you get a different code. The reality is that there is unique information encrypted in the codes however you need a VAS compatible scanner and the proper keys to decode them.<br/>More details here.</p>
+      </li>
+      <li class="my-8 text-white">
+        <strong class="font-semibold text-lg">Does your solution work offline?</strong>
+        <p class="font-light text-lg mt-2">Yes. Our software for creating, updating, and validating passes is completely portable so you can access it from our AWS servers or host it inside your enterprise. You will need to set up some public endpoints to receive Wallet webhook calls so most customers choose to use our software for creating and updating passes and only run pass validation offline.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
