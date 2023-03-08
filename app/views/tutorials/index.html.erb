@@ -1,3 +1,48 @@
-<% @topics.each do |topic| %>
-  1. <%= topic %>
-<% end %>
+<section class="bg-ninja-red">
+  <div class="text-center pt-12 w-full">
+    <h1 class="uppercase text-6xl text-white font-light font-oswald mx-auto">Simple tutorials to lean about NFC</h1>
+    <span class="inline-block text-gray-200 text-2xl w-11/12 md:w-4/12 mx-auto mt-8 mb-32">
+      Find the right guide or tutorial to help you build passes like a ninja
+    </span>
+  </div>
+</section>
+
+<section class="container mx-auto -mt-24 mb-20">
+  <div class="w-10/12 mx-auto grid grid-cols-1 gap-8 md:grid-cols-3">
+    <% @topics.each do |topic| %>
+      <%= link_to tutorial_path(topic[:path]), class: "bg-white shadow py-20 px-6 text-center rounded-xl" do %>
+        <strong class="text-xl"><%= topic[:path].titleize %></strong>
+        <p><%= pluralize(topic[:article_count], "tutorial") %></p>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<section class="mt-8 relative h-[1950px] md:h-[900px]">
+  <div class="h-[1850px] md:h-[850px] w-9/12 md:w-6/12 bg-gray-600 absolute"></div>
+
+  <div class="absolute w-full pt-12">
+    <div class="md:container mx-auto flex">
+
+      <div class="w-full text-center">
+        <h3 class="uppercase font-light font-oswald leading-tight text-white tracking-tight mt-4 text-5xl md:text-6xl">
+          CHECK OUT POPULAR TUTORIALS
+        </h3> 
+      </div>
+    </div> <!-- end of section header -->
+
+    <div class="container mx-auto">
+      <div class="w-11/12 mt-16 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <% @articles.each do |article| %>
+          <%= link_to detail_tutorial_path(article[:path]), class: "bg-white shadow py-8 px-6 rounded-xl group" do %>
+            <label class="uppercase text-gray-700 font-semibold block text-sm">Tutorial</label>
+            <strong class="text-2xl group-hover:underline"><%= article[:title] %></strong>
+            <p class="text-sm mt-2">
+              <%= article[:summary].truncate(200, separator: '') %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div> <!-- end of container -->
+  </div>
+</section>

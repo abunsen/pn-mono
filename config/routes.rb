@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :users
   resources :groups
   resources :accounts
-  resources :tutorials, only: [:index, :show]
+  resources :tutorials, only: [:index, :show] do
+    member do
+      get "article/:id", to: "tutorials#article", as: "detail"
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
