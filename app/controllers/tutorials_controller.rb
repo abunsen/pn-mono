@@ -8,9 +8,29 @@ class TutorialsController < ApplicationController
   end
 
   def show
+    @articles = Pathname.new(
+      Rails.root.join('app/views/tutorial-files')
+    ).children.select do |c|
+      c.directory? && c.basename.to_s.ends_with?(params[:id])
+    end.map do |p|
+      p.children.select { |c| c.extname == ".md" }.map do |x|
+        { file: x, topic: p.to_s.split('/').last }
+      end
+    end.flatten.map do |article|
+      summary = article[:file].open.first(10).select { |l| l.size > 140 }.first
+      article_filename = article[:file].basename.to_s.gsub(article[:file].extname, '')
+      {
+        path: article_filename,
+        title: article_filename.titleize,
+        summary: summary,
+        topic: article[:topic]
+      }
+    end[0..7]
   end
 
   def article
+    p params
+    # @article = File.open(Rails.root.join('app/views/tutorial-files',))
   end
 
   private
@@ -30,14 +50,17 @@ class TutorialsController < ApplicationController
     @articles = Pathname.new(
       Rails.root.join('app/views/tutorial-files')
     ).children.select { |c| c.directory? }.map do |p|
-      p.children.select { |c| c.extname == ".md" }
-    end.flatten.map do |article|
-      summary = article.open.first(10).select { |l| l.size > 140 }.first
-      article_filename = article.basename.to_s.gsub(article.extname, '')
+      p.children.select { |c| c.extname == ".md" }.map do |x|
+        { file: x, topic: p.to_s.split('/').last }
+      end
+    end.flatten.map do |article, topic|
+      summary = article[:file].open.first(10).select { |l| l.size > 140 }.first
+      article_filename = article[:file].basename.to_s.gsub(article[:file].extname, '')
       {
         path: article_filename,
         title: article_filename.titleize,
-        summary: summary
+        summary: summary,
+        topic: article[:topic]
       }
     end[0..7]
   end

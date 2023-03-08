@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :accounts
   resources :tutorials, only: [:index, :show] do
     member do
-      get "article/:id", to: "tutorials#article", as: "detail"
+      get ":slug", to: "tutorials#article", as: "detail"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
