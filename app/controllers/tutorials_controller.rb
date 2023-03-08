@@ -39,7 +39,7 @@ class TutorialsController < ApplicationController
         title: article_filename.titleize,
         summary: summary
       }
-    end[0..11]
+    end[0..7]
   end
 
   def article_count(dir)
