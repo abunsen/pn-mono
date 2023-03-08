@@ -2,7 +2,7 @@ class TutorialsController < ApplicationController
   layout 'website'
   before_action :set_bg_color
   before_action :set_topics
-  before_action :set_popular_articles
+  before_action :set_popular_articles, only: [:index]
 
   def index
   end
