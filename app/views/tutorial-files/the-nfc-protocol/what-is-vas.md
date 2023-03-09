@@ -1,19 +1,40 @@
-# what is vas
-
 ## Overview
+If you're a developer working with Near Field Communication (NFC) technology, you may be familiar with the Value Added Services (VAS) protocol. In this article, we'll provide an overview of VAS, including its definition, implementation, and usage.
 
-What is VAS? It all starts with the GSMA. It's a cell phone standard that that was invented or defined in France. And it's the one that has the most coverage around the world. Okay. And so what what does VAS cover? Mhm. The ability of doing mobile transfers, mobile credential transfers using a cell phone. So it's not specific to NFC? Yes, it is specific to NFC. So VAS is value added services, but what is it? It's a standard. It's a standard defined by the GSM specification. Is GSM a standards body or is it a standard? GSM is a standard, GSMA is the association that rules the standard. Okay, so and so VAS is part of the GSM standard, right? Well, yeah, maybe I'd have to look at the specification to be explicit about that, but Okay. I just know that it's like section 19 of like the overall book that they put out. Got it. And who implements VAS? The mobile phone manufacturers.
+VAS is a cell phone standard defined by the GSM Association (GSMA) that enables mobile credential transfers using a cell phone. Specifically, VAS supports mobile transfers through NFC technology. VAS was originally part of the GSM standard and is partially implemented by mobile phone manufacturers who must follow GSMA's guidelines to ensure that their devices are approved for VAS. Apple calls their implementation Apple VAS and Google calls their implentation Google SmartTap.
 
-## Guide content
+VAS has a wide range of potential applications, including flight bookings, event ticketing, coupons, loyalty cards, gift cards, stored value cards, gym passes, and corporate visitor passes.
 
-What is the VAS protocol? Is it hardware protocol? Is it a software protocol? Is it both? It's a hardware and software protocol implemented by the mobile phone manufacturer for communicating credentials over the RF. Is there any encryption requirements? Anything else that's interesting about that? It defines an encryption functionality but how it's implemented, it may be a little vague so each each uh phone manufacturer chooses the way but they just have to respect that what's sent over the air is not "in the clear". Are there a specific list of manufacturers that support? Is Apple one of them? Apple is definitely one of them. But you know, in order to be able to have a phone that gets approved by the GSMA like you have to follow their standard? Got it. So Motorola probably has some. Huawei probably has some. Who else? Samsung, Nokia. Yeah, that's a good one. Eriksson.
+## How does the VAS protocol work?
+The VAS protocol is both a hardware and software protocol implemented by mobile phone manufacturers. It enables communication of credentials over radio frequency (RF) and defines encryption functionality to ensure that the data transmitted is not in clear text. While the protocol defines the encryption functionality, each manufacturer may implement the encryption in a different way. Some phone manufacturers that support VAS include Apple, Motorola, Huawei, Samsung, Nokia, and Ericsson.
 
-What can you use VAS for? The applications can be flight bookings, event ticketing, coupons, loyalty cards, gift cards, stored value cards, gym passes, corporate visitor passes. What are what are some of the details of implementing? Like what do you need some sort of special certificate or something like that? Tell us more. In order to get VAS to work on mobile devices, the manufacturer controls the security model. So in the case of Apple and Google the way they've developed their security model is they require people trying to define VAS credentials to have a certificate to do so. Similar to how they require developers to have a certificate to publish apps that run on these devices. So in order to use VAS on an Apple or an Android enabled phone, you need a certificate issued directly by Apple or Google. Yeah, I don't know if it's broad to all Android phones because there's some Android phones that um don't incorporate the Google Suite of apps. So they may not have Google Wallet capability, but specifically only the Google Wallet capable Android phones support VAS.
+## How does VAS connect through NFC
+NFC tags fall under the NFC Forum, which defines several layers of NFC communication, such as physical, radio, etc. The NFC Forum defines the physical layer, which includes the carrier frequency, data modulation, and encoding timings. Beyond the physical layer, the the Initialization Anticollision Protocol Activation layer (aka the media access layer) allows for 1-to-1 connection between two NFC radios. NFC targets fall under eight types:
 
-## PassNinja recommendation
+1. Type 1 (Topaz) - ISO 14443A - Memory availability is 96 bytes and expandable to 2kB.
+2. Type 2 - ISO 14443 - Memory availability is 48 bytes and expandable to 2 kbyte.
+3. Type 3 (FeliCa) - ISO 14443 - Memory availability up to 1MByte.
+4. Type 4 - ISO 14443 / ISO 7896 - Memory availability up to 1MByte.
+5. Type 5 (PicoPass) - ISO 14443 - Memory availability up to 32kByte.
+6. Type 6 - ISO 15693 - Generic RFID Tag used to store NFC Forum NDEF messages (max 8kB)
+7. Type 7 - ISO 14443 - Proprietary NXP crypto
+8. Type V - ISO 15693 - Proprietary NXP for ICODE
 
-So how does VAS connect to NFC tags? NFC tags fall within another standards body called the NFC Forum. The NFC Forum is in charge of defining several layers of the NFC communication. It starts with the physical layer, like the carrier frequency, the way data is modulated onto such carrier, the timings by which ones and zeros get encoded onto those radio frequency waves. All that is all defined by the NFC Forum. Now once you get beyond the physical layer, then you start working in um the media access layer, which is what allows you to do a 1-1 connection between two radios. That's the definition that helps group the different NFC targets that a reader can activate. And those NFC targets fall within five types. So they call them NFC type 1, 2, 3, 4 and 5. Now Type 4 is the one that has to do with credentials that are extendable by way of a format which is called PPSE. The PPSE format is like a file system format so that the data, whether it's cryptographically signed or not can be stored within that type in a browsable way. Now with that file system structure, then a reader can go and probe for different files based on the applications that it may want to run with them.
+The one we care about for VAS implementations is Type 4. NFC forum Type 4 passes support files that are extendable by the ISO 7896 specification, which specifies a file system format that allows for data to be stored in a structured way that does not require byte addressing. When Type 4 is selected in the media access layer, it allows for interaction with VAS, including the exchange of unique identifiers and payloads.
+
+## Building for VAS 
+
+To use VAS on a mobile device, the manufacturer controls the security model, and in the case of Apple and Google, developers need a certificate to define VAS credentials which is obtained by applying for a developer account in each software providers developer portal. To use VAS on an Apple or Android-enabled phone, a certificate must be issued directly by Apple or Google.
+
+From a software perspective, you must create custom code for issuing passes according to the respective operating system's pass API. You may also need to deal with webhook integration for push notifications on Apple as well. 
+
+From a hardware reader perspective, you must manage the certificates issued by Apple and Google as well as making sure your NFC reading firmware is VAS compatible. Not to mention the key (ECC private/public key pair) management necessary for decoding a pass.
+
+## Making it simple with PassNinja
+
+Alternatively, if you'd like to get started with issuing NFC passes today, you can use the PassNinja platform, which does not require approval, certificate management, normalizes the pass API across Apple and Google as well as provides ready to go hardware pre-loaded with appropriate certificates and keys.
 
 ## Conclusion
+If you're a developer working with NFC technology, understanding the VAS protocol and its implementation can provide you with a valuable toolset for a wide range of applications. By connecting VAS to NFC tags, you can enable secure mobile credential transfers that can benefit both consumers and businesses alike.
 
-That's important because in the case of VAS, the the data is stored in a file structure that follows the PPSE format. In other words, VAS falls within the category of the NFC Forum Type 4 tag. When the type 4 is selected in the media access layer, that's how you graduate into the application layer that can interact with VAS and do the handshaking and the exchange of who are you? What's your unique identifier? what's your payload? That way it can decide based on case statement logic what to do. For instance, if it's a loyalty card or if it's a payment card or all these things, then a distinct user experience can be handled by the reader.
+If you have any feedback on this article, let us know! Email content@passninja.com
