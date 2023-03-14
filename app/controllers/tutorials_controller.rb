@@ -29,8 +29,10 @@ class TutorialsController < ApplicationController
   end
 
   def article
-    p params
-    # @article = File.open(Rails.root.join('app/views/tutorial-files',))
+    article_file = File.open(Rails.root.join('app/views/tutorial-files', params[:id], "#{params[:slug]}.md"))
+    raw_content = article_file.readlines
+    @content = helpers.render_tut(raw_content)
+    @sections = helpers.extract_section_titles(raw_content.join)
   end
 
   private

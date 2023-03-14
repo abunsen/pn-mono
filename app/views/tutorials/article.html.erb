@@ -1,0 +1,21 @@
+<div class="flex container mx-auto">
+  <div class="w-2/12">
+    <ul>
+      <% @sections.each do |section| %>
+        <li class="my-2">
+          <%= link_to section, section.parameterize, class: "text-white hover:font-semibold" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  
+  <div class="w-7/12">
+    <div class="text-white">
+      <%= @content.html_safe %>
+    </div>
+  </div>
+
+  <div class="w-3/12">
+    right side
+  </div>
+</div>
