@@ -14,11 +14,11 @@ class TutorialRenderer < Redcarpet::Render::HTML
   def header(text, level)
     case level
     when 1
-      "<h1 class=\"text-3xl font-semibold mt-4 mb-2\">#{text}</h1>"
+      "<h1 class=\"text-3xl font-semibold mt-4 mb-2\" id=\"#{text.parameterize}\">#{text}</h1>"
     when 2
-      "<h2 class=\"text-xl font-semibold mt-4\">#{text}</h2>"
+      "<h2 class=\"text-xl font-semibold mt-4\" id=\"#{text.parameterize}\">#{text}</h2>"
     when 3
-      "<h3 class=\"text-lg font-semibold mt-4\">#{text}</h3>"
+      "<h3 class=\"text-lg font-semibold mt-4\" id=\"#{text.parameterize}\">#{text}</h3>"
     end
   end
 
