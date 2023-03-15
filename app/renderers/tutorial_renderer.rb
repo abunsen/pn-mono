@@ -38,6 +38,10 @@ class TutorialRenderer < Redcarpet::Render::HTML
     "<li class=\"my-1\">#{text}</li>"
   end
 
+  def link(link, title, content)
+    "<a href=\"#{link}\" title=\"#{title}\" class=\"underline font-semibold\" target=\"_blank\">#{content}</a>"
+  end
+
   def paragraph(text)
     "<p class=\"my-4 font-light leading-tight\">#{text}</p>"
   end

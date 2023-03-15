@@ -1,8 +1,9 @@
 title: What is the VAS protocol - an explanation
+author: @grundy
 
 ## Overview
 
-If you're a developer working with Near Field Communication (NFC) technology, you may be familiar with the Value Added Services (VAS) protocol. In this article, we'll provide an overview of VAS, including its definition, implementation, and usage.
+If you're a developer working with Near Field Communication (NFC) technology, you may be familiar with the Value Added Services (VAS) protocol. In this article, we'll provide an overview of VAS, including its definition, implementation, and usage. [Duck Duck Go](https://duckduckgo.com)
 
 VAS is a cell phone standard defined by the GSM Association (GSMA) that enables mobile credential transfers using a cell phone. Specifically, VAS supports mobile transfers through NFC technology. VAS was originally part of the GSM standard and is partially implemented by mobile phone manufacturers who must follow GSMA's guidelines to ensure that their devices are approved for VAS. Apple calls their implementation Apple VAS and Google calls their implentation Google SmartTap.
 
